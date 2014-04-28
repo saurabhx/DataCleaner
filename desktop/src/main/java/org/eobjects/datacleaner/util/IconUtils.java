@@ -27,6 +27,7 @@ import java.util.Set;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
+import org.apache.metamodel.schema.Column;
 import org.eobjects.analyzer.beans.api.ComponentCategory;
 import org.eobjects.analyzer.beans.writers.WriteDataCategory;
 import org.eobjects.analyzer.connection.AccessDatastore;
@@ -37,6 +38,7 @@ import org.eobjects.analyzer.connection.Datastore;
 import org.eobjects.analyzer.connection.DbaseDatastore;
 import org.eobjects.analyzer.connection.ExcelDatastore;
 import org.eobjects.analyzer.connection.FixedWidthDatastore;
+import org.eobjects.analyzer.connection.HBaseDatastore;
 import org.eobjects.analyzer.connection.JdbcDatastore;
 import org.eobjects.analyzer.connection.MongoDbDatastore;
 import org.eobjects.analyzer.connection.OdbDatastore;
@@ -52,7 +54,6 @@ import org.eobjects.analyzer.descriptors.TransformerBeanDescriptor;
 import org.eobjects.analyzer.util.StringUtils;
 import org.eobjects.datacleaner.database.DatabaseDriverCatalog;
 import org.eobjects.datacleaner.database.DatabaseDriverDescriptor;
-import org.eobjects.metamodel.schema.Column;
 
 /**
  * Contains utility methods concerned with icons, primarily datastore and
@@ -113,6 +114,7 @@ public final class IconUtils {
     public static final String ODB_IMAGEPATH = "images/datastore-types/odb.png";
     public static final String COMPOSITE_IMAGEPATH = "images/datastore-types/composite.png";
     public static final String MONGODB_IMAGEPATH = "images/datastore-types/mongodb.png";
+    public static final String HBASE_IMAGEPATH = "images/datastore-types/hbase.png";
     public static final String COUCHDB_IMAGEPATH = "images/datastore-types/couchdb.png";
     public static final String SALESFORCE_IMAGEPATH = "images/datastore-types/salesforce.png";
     public static final String SUGAR_CRM_IMAGEPATH = "images/datastore-types/sugarcrm.png";
@@ -368,6 +370,8 @@ public final class IconUtils {
             imagePath = XML_IMAGEPATH;
         } else if (datastore instanceof CouchDbDatastore) {
             imagePath = COUCHDB_IMAGEPATH;
+        } else if (datastore instanceof HBaseDatastore) {
+            imagePath = HBASE_IMAGEPATH;
         } else if (datastore instanceof MongoDbDatastore) {
             imagePath = MONGODB_IMAGEPATH;
         } else if (datastore instanceof SalesforceDatastore) {

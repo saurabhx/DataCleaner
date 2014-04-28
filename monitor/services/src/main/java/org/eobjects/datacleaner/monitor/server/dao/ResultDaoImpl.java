@@ -29,8 +29,8 @@ import org.eobjects.datacleaner.monitor.shared.model.TenantIdentifier;
 import org.eobjects.datacleaner.repository.RepositoryFile;
 import org.eobjects.datacleaner.repository.RepositoryFolder;
 import org.eobjects.datacleaner.util.FileFilters;
-import org.eobjects.metamodel.util.CollectionUtils;
-import org.eobjects.metamodel.util.Predicate;
+import org.apache.metamodel.util.CollectionUtils;
+import org.apache.metamodel.util.Predicate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

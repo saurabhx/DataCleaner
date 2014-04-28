@@ -40,7 +40,7 @@ import org.eobjects.analyzer.reference.StringPattern;
 import org.eobjects.analyzer.reference.SynonymCatalog;
 import org.eobjects.analyzer.util.ReflectionUtils;
 import org.eobjects.datacleaner.guice.InjectorBuilder;
-import org.eobjects.metamodel.util.Resource;
+import org.apache.metamodel.util.Resource;
 
 import com.google.inject.Injector;
 import com.google.inject.TypeLiteral;

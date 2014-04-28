@@ -26,7 +26,6 @@ import junit.framework.TestCase;
 import org.eobjects.analyzer.beans.filter.NumberRangeFilter;
 import org.eobjects.analyzer.beans.filter.RangeFilterCategory;
 import org.eobjects.analyzer.beans.standardize.EmailStandardizerTransformer;
-import org.eobjects.analyzer.beans.transform.StringLengthTransformer;
 import org.eobjects.analyzer.beans.transform.TokenizerTransformer;
 import org.eobjects.analyzer.configuration.AnalyzerBeansConfiguration;
 import org.eobjects.analyzer.configuration.AnalyzerBeansConfigurationImpl;

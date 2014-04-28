@@ -52,6 +52,7 @@ import org.eobjects.analyzer.connection.DatastoreConnection;
 import org.eobjects.analyzer.connection.DbaseDatastore;
 import org.eobjects.analyzer.connection.ExcelDatastore;
 import org.eobjects.analyzer.connection.FixedWidthDatastore;
+import org.eobjects.analyzer.connection.HBaseDatastore;
 import org.eobjects.analyzer.connection.JdbcDatastore;
 import org.eobjects.analyzer.connection.MongoDbDatastore;
 import org.eobjects.analyzer.connection.OdbDatastore;
@@ -82,6 +83,7 @@ import org.eobjects.datacleaner.windows.CsvDatastoreDialog;
 import org.eobjects.datacleaner.windows.DbaseDatastoreDialog;
 import org.eobjects.datacleaner.windows.ExcelDatastoreDialog;
 import org.eobjects.datacleaner.windows.FixedWidthDatastoreDialog;
+import org.eobjects.datacleaner.windows.HBaseDatastoreDialog;
 import org.eobjects.datacleaner.windows.JdbcDatastoreDialog;
 import org.eobjects.datacleaner.windows.MongoDbDatastoreDialog;
 import org.eobjects.datacleaner.windows.OdbDatastoreDialog;
@@ -316,6 +318,8 @@ public class DatastoreListPanel extends DCPanel implements DatastoreChangeListen
 
         panel.add(Box.createHorizontalStrut(10));
 
+        panel.add(createNewDatastoreButton("HBase database", "Connect to an HBase database",
+                IconUtils.HBASE_IMAGEPATH, HBaseDatastore.class, HBaseDatastoreDialog.class));
         panel.add(createNewDatastoreButton("MongoDB database", "Connect to a MongoDB database",
                 IconUtils.MONGODB_IMAGEPATH, MongoDbDatastore.class, MongoDbDatastoreDialog.class));
 

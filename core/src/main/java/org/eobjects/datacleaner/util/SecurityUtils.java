@@ -29,7 +29,7 @@ import org.apache.http.conn.scheme.Scheme;
 import org.apache.http.conn.scheme.SchemeRegistry;
 import org.apache.http.conn.ssl.SSLSocketFactory;
 import org.eobjects.analyzer.util.convert.EncodedStringConverter;
-import org.eobjects.analyzer.util.ws.NaiveTrustManager;
+//import org.eobjects.analyzer.util.ws.NaiveTrustManager;
 
 /**
  * Utility methods for security concerns.
@@ -52,20 +52,20 @@ public class SecurityUtils {
      * @throws IllegalStateException
      */
     public static void removeSshCertificateChecks(HttpClient httpClient) throws IllegalStateException {
-        try {
-            // prepare a SSL context which doesn't validate certificates
-            final SSLContext sslContext = SSLContext.getInstance("SSL");
-            final TrustManager trustManager = new NaiveTrustManager();
-            sslContext.init(null, new TrustManager[] { trustManager }, new SecureRandom());
-            final SSLSocketFactory schemeSocketFactory = new SSLSocketFactory(sslContext);
-            final Scheme sslScheme = new Scheme("https", 443, schemeSocketFactory);
-
-            // try again with a new registry
-            final SchemeRegistry registry = httpClient.getConnectionManager().getSchemeRegistry();
-            registry.register(sslScheme);
-        } catch (Exception e) {
-            throw new IllegalStateException(e);
-        }
+//        try {
+//            // prepare a SSL context which doesn't validate certificates
+//            final SSLContext sslContext = SSLContext.getInstance("SSL");
+//            final TrustManager trustManager = new NaiveTrustManager();
+//            sslContext.init(null, new TrustManager[] { trustManager }, new SecureRandom());
+//            final SSLSocketFactory schemeSocketFactory = new SSLSocketFactory(sslContext);
+//            final Scheme sslScheme = new Scheme("https", 443, schemeSocketFactory);
+//
+//            // try again with a new registry
+//            final SchemeRegistry registry = httpClient.getConnectionManager().getSchemeRegistry();
+//            registry.register(sslScheme);
+//        } catch (Exception e) {
+//            throw new IllegalStateException(e);
+//        }
     }
 
     /**

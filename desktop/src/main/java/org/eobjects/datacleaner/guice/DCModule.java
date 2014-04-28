@@ -65,10 +65,10 @@ import org.eobjects.datacleaner.user.UserPreferencesImpl;
 import org.eobjects.datacleaner.util.SystemProperties;
 import org.eobjects.datacleaner.windows.AnalysisJobBuilderWindow;
 import org.eobjects.datacleaner.windows.AnalysisJobBuilderWindowImpl;
-import org.eobjects.metamodel.util.ImmutableRef;
-import org.eobjects.metamodel.util.LazyRef;
-import org.eobjects.metamodel.util.MutableRef;
-import org.eobjects.metamodel.util.Ref;
+import org.apache.metamodel.util.ImmutableRef;
+import org.apache.metamodel.util.LazyRef;
+import org.apache.metamodel.util.MutableRef;
+import org.apache.metamodel.util.Ref;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

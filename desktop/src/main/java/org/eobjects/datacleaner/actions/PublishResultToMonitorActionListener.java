@@ -33,7 +33,7 @@ import org.eobjects.datacleaner.user.MonitorConnection;
 import org.eobjects.datacleaner.user.UserPreferences;
 import org.eobjects.datacleaner.util.FileFilters;
 import org.eobjects.datacleaner.windows.ResultWindow;
-import org.eobjects.metamodel.util.Ref;
+import org.apache.metamodel.util.Ref;
 
 /**
  * Action listener invoked when the user clicks the "Publish to dq monitor"

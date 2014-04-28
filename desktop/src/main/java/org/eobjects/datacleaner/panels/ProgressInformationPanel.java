@@ -48,7 +48,7 @@ import org.eobjects.datacleaner.util.WidgetUtils;
 import org.eobjects.datacleaner.widgets.DCLabel;
 import org.eobjects.datacleaner.widgets.DCProgressBar;
 import org.eobjects.datacleaner.widgets.LoadingIcon;
-import org.eobjects.metamodel.schema.Table;
+import org.apache.metamodel.schema.Table;
 import org.jdesktop.swingx.VerticalLayout;
 import org.joda.time.LocalTime;
 import org.joda.time.format.DateTimeFormat;
