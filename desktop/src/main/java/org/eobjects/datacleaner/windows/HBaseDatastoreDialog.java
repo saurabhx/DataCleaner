@@ -28,6 +28,7 @@ import javax.swing.JButton;
 import javax.swing.JComponent;
 
 import org.apache.metamodel.schema.Schema;
+import org.apache.metamodel.util.SimpleTableDef;
 import org.eobjects.analyzer.connection.DatastoreConnection;
 import org.eobjects.analyzer.connection.HBaseDatastore;
 import org.eobjects.datacleaner.bootstrap.WindowContext;
@@ -40,6 +41,7 @@ import org.eobjects.datacleaner.util.SchemaFactory;
 import org.eobjects.datacleaner.util.WidgetFactory;
 import org.eobjects.datacleaner.util.WidgetUtils;
 import org.eobjects.datacleaner.widgets.DCLabel;
+import org.eobjects.datacleaner.widgets.TableDefinitionOptionSelectionPanel;
 import org.jdesktop.swingx.JXTextField;
 import org.jdesktop.swingx.VerticalLayout;
 
@@ -55,6 +57,7 @@ public class HBaseDatastoreDialog extends AbstractDialog implements SchemaFactor
 	private final JXTextField _hostnameTextField;
 	private final JXTextField _portTextField;
 	private final JXTextField _datastoreNameTextField;
+	private final TableDefinitionOptionSelectionPanel _tableDefinitionWidget;
 
 	@Inject
 	public HBaseDatastoreDialog(WindowContext windowContext, MutableDatastoreCatalog catalog,
@@ -71,11 +74,14 @@ public class HBaseDatastoreDialog extends AbstractDialog implements SchemaFactor
 		if (_originalDatastore == null) {
 			_hostnameTextField.setText("localhost");
 			_portTextField.setText("2181");
+			_tableDefinitionWidget = new TableDefinitionOptionSelectionPanel(windowContext, this, null);
 		} else {
 			_datastoreNameTextField.setText(_originalDatastore.getName());
 			_datastoreNameTextField.setEnabled(false);
 			_hostnameTextField.setText(_originalDatastore.getZookeeperHostname());
 			_portTextField.setText(_originalDatastore.getZookeeperPort() + "");
+			final SimpleTableDef[] tableDefs = _originalDatastore.getTableDefs();
+			_tableDefinitionWidget = new TableDefinitionOptionSelectionPanel(windowContext, this, tableDefs);
 		}
 	}
 
@@ -116,6 +122,10 @@ public class HBaseDatastoreDialog extends AbstractDialog implements SchemaFactor
 		WidgetUtils.addToGridBag(DCLabel.bright("Port:"), formPanel, 0, row);
 		WidgetUtils.addToGridBag(_portTextField, formPanel, 1, row);
 		row++;
+		
+		WidgetUtils.addToGridBag(DCLabel.bright("Schema model:"), formPanel, 0, row);
+        WidgetUtils.addToGridBag(_tableDefinitionWidget, formPanel, 1, row);
+        row++;
 
 		final JButton saveButton = WidgetFactory.createButton("Save datastore", "images/model/datastore.png");
 		saveButton.addActionListener(new ActionListener() {
@@ -147,7 +157,8 @@ public class HBaseDatastoreDialog extends AbstractDialog implements SchemaFactor
 		final String name = _datastoreNameTextField.getText();
 		final String hostname = _hostnameTextField.getText();
 		final Integer port = Integer.parseInt(_portTextField.getText());
-		return new HBaseDatastore(name, hostname, port);
+		final SimpleTableDef[] tableDefinitions = _tableDefinitionWidget.getTableDefs();
+        return new HBaseDatastore(name, hostname, port, tableDefinitions);
 	}
 
 	@Override
